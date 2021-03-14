@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 The AOSP Project
+ * Copyright (c) 2017-2021 The AOSP Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,8 +100,8 @@ public class SensorHelper {
 
     public void registerListener(Sensor sensor, SensorEventListener listener) {
         if (!mSensorManager.registerListener(listener, sensor,
-            SensorManager.SENSOR_DELAY_NORMAL, BATCH_LATENCY_IN_MS * 1000)) {
-            throw new RuntimeException("Failed to registerListener for sensor " + sensor);
+                SensorManager.SENSOR_DELAY_NORMAL, BATCH_LATENCY_IN_MS * 1000)) {
+            Log.e(TAG, "Failed to registerListener for sensor " + sensor);
         }
     }
 
@@ -112,7 +112,7 @@ public class SensorHelper {
     /* TriggerSensor */
     public void requestTriggerSensor(Sensor sensor, TriggerEventListener listener) {
         if (!mSensorManager.requestTriggerSensor(listener, sensor)) {
-            throw new RuntimeException("Failed to requestTriggerSensor for sensor " + sensor);
+             Log.e(TAG, "Failed to requestTriggerSensor for sensor " + sensor);
         }
     }
 

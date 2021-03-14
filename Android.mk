@@ -323,10 +323,6 @@ $(WIFI_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@/*
 	@mkdir -p $(dir $@)
 	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_wlan_nv.bin $(dir $@)
-	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_wlan_nv_Argentina.bin $(dir $@)
-	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_wlan_nv_Brazil.bin $(dir $@)
-	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_wlan_nv_India.bin $(dir $@)
-	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_wlan_nv_epa.bin $(dir $@)
 	$(hide) ln -sf /vendor/etc/wifi/WCNSS_wlan_dictionary.dat $(dir $@)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WIFI_SYMLINKS)
