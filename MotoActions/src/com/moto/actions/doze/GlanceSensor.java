@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 The AOSP Project
+ * Copyright (c) 2017-2021 The AOSP Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ public class GlanceSensor implements ScreenStateNotifier {
     private final MotoActionsSettings mMotoActionsSettings;
     private final SensorHelper mSensorHelper;
     private final SensorAction mSensorAction;
-    
+
     private final Sensor mSensor;
     private final Sensor mApproachSensor;
 
@@ -62,7 +62,7 @@ public class GlanceSensor implements ScreenStateNotifier {
         if (mMotoActionsSettings.isPickUpEnabled() && !mEnabled) {
             Log.d(TAG, "Enabling");
             mSensorHelper.registerListener(mSensor, mGlanceListener);
-            mSensorHelper.registerListener(mSensor, mApproachGlanceListener);
+            mSensorHelper.registerListener(mApproachSensor, mApproachGlanceListener);
             mEnabled = true;
         }
     }

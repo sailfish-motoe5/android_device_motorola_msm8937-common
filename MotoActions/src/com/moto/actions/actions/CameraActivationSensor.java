@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 The AOSP Project
+ * Copyright (c) 2017-2021 The AOSP Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ package com.moto.actions.actions;
 
 import java.util.List;
 
+import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -65,5 +66,10 @@ public class CameraActivationSensor implements SensorEventListener, UpdatedState
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    }
+
+    public static boolean hasSensor(Context context) {
+        SensorHelper sensorHelper = new SensorHelper(context);
+        return sensorHelper.getCameraActivationSensor() != null;
     }
 }

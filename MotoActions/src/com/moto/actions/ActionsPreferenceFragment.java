@@ -17,13 +17,23 @@
 package com.moto.actions;
 
 import android.os.Bundle;
+import androidx.preference.PreferenceCategory;
 import android.support.v14.preference.PreferenceFragment;
 
+import com.moto.actions.actions.CameraActivationSensor;
+
 public class ActionsPreferenceFragment extends PreferenceFragment {
+    private final String KEY_ACTIONS_CATEGORY = "actions_key";
+    private final String KEY_GESTURE_CAMERA_ACTION = "gesture_camera_action";
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (!CameraActivationSensor.hasSensor(getContext())) {
+            PreferenceCategory category = findPreference(KEY_ACTIONS_CATEGORY);
+            category.removePreferenceRecursively(KEY_GESTURE_CAMERA_ACTION);
+        }
     }
 
     @Override
